@@ -74,33 +74,40 @@ Hình 1 – Định dạng tin nhắn
 Trả lời: KWP 2000(ISO14230) là tiêu chuẩn truyền thông chẩn đoán. Chỉ định các cấu hình hệ thống có thể sử dụng dòng K & L. Như 9141-2 nhưng bị giới hạn ở các đặc tính vật lý. Chỉ định các cấu hình hệ thống có thể sử dụng dòng K & L.
  5 Baud thức dậy là 9141- 2
  Phương pháp khởi tạo nhanh mới
+
 20.OBDII là gì?
 Trả lời: Chẩn đoán trên xe trong bối cảnh ô tô là một thuật ngữ chung đề cập đến khả năng tự chẩn đoán và báo cáo của xe
+
 21. Tại sao lại là Tiêu chuẩn Chẩn đoán?
 Trả lời: Khi các hệ thống trở nên phức tạp hơn, mối liên hệ giữa nguyên nhân và triệu chứng trở nên ít rõ ràng hơn. Điều này có nghĩa là các hệ thống điện tử phải có khả năng tự chẩn đoán ở một mức độ nào đó và liên lạc với thế giới bên ngoài. Ban đầu, nhiều hệ thống sử dụng các giao thức riêng, điều đó có nghĩa là các gara phải có một số lượng lớn công cụ – thậm chí để chẩn đoán một chiếc xe.
-22. Xác minh và xác nhận nghĩa là gì??
+
+23. Xác minh và xác nhận nghĩa là gì??
 Trả lời: Xác minh và Xác thực (V&V) là quá trình kiểm tra xem hệ thống phần mềm có đáp ứng các thông số kỹ thuật hay không và nó có đáp ứng được mục đích đã định hay không. Nó thường là một phần của quá trình kiểm thử phần mềm của một dự án.
 Theo Mô hình trưởng thành khả năng (CMMI-SW v1.1),
  Xác minh: Quá trình đánh giá phần mềm để xác định xem các sản phẩm của một giai đoạn phát triển nhất định có đáp ứng các điều kiện đặt ra khi bắt đầu giai đoạn đó hay không.
  Xác nhận: Quá trình đánh giá phần mềm trong hoặc ở cuối quá trình phát triển để xác định xem nó có đáp ứng các yêu cầu cụ thể hay không.
  Việc xác minh cho thấy sự phù hợp với đặc điểm kỹ thuật; xác nhận cho thấy chương trình đáp ứng nhu cầu của khách hàng
-23. Bạn có thể có hai bộ phát sử dụng cùng một trường tiêu đề chính xác không?
+
+25. Bạn có thể có hai bộ phát sử dụng cùng một trường tiêu đề chính xác không?
 Trả lời: Không – điều đó sẽ tạo ra xung đột bus
 • Trừ khi bạn có phần mềm trung gian đảm bảo chỉ một nút có thể truyền tại một thời điểm
 – Ví dụ: sử dụng thông báo có mức độ ưu tiên thấp làm mã thông báo để mô phỏng việc chuyển mã thông báo
-24. Mức điện áp lớp vật lý CAN
+26. Mức điện áp lớp vật lý CAN
 
-25. Định thời bit CAN:
+27. Định thời bit CAN:
 Theo đặc tả CAN, thời gian bit được chia thành bốn đoạn. Phân đoạn đồng bộ hóa, Phân đoạn thời gian truyền, Phân đoạn đệm pha 1 và Phân đoạn đệm pha 2. Mỗi phân đoạn bao gồm một số lượng tử thời gian cụ thể, có thể lập trình được (xem Bảng 1). Độ dài của lượng tử thời gian (tq), là đơn vị thời gian cơ bản của thời gian bit, được xác định bởi đồng hồ hệ thống fsys của bộ điều khiển CAN và Bộ chia tỷ lệ trước tốc độ Baud (BRP): tq = BRP / fsys. Đồng hồ hệ thống điển hình là: fsys = fosc hoặc fsys = fosc/2.
 Phân đoạn đồng bộ hóa Sync_Seg là một phần thời gian bit mà các cạnh của mức bus CAN dự kiến ​​sẽ xảy ra; khoảng cách giữa một cạnh xảy ra bên ngoài Sync_Seg và Sync_Seg được gọi là lỗi pha của cạnh đó. Phân đoạn thời gian lan truyền Prop_Seg nhằm mục đích bù đắp cho thời gian trễ vật lý trong mạng CAN. Các phân đoạn đệm pha Phase_Seg1 và Phase_Seg2 bao quanh Điểm mẫu. Độ rộng bước nhảy đồng bộ hóa (Re-) (SJW) xác định khoảng cách quá trình đồng bộ hóa lại có thể di chuyển Điểm mẫu trong giới hạn được xác định bởi Phân đoạn bộ đệm pha để bù cho các lỗi pha biên.
 
 Có hai loại đồng bộ hóa: Đồng bộ hóa cứng và Đồng bộ hóa lại. Đồng bộ hóa cứng được thực hiện một lần khi bắt đầu khung; bên trong một khung chỉ xảy ra quá trình đồng bộ lại.
 • Đồng bộ hóa cứng Sau khi đồng bộ hóa cứng, thời gian bit được khởi động lại khi kết thúc Sync_Seg, bất kể lỗi pha biên. Do đó, đồng bộ hóa cứng buộc biên khiến cho đồng bộ hóa cứng nằm trong phân đoạn đồng bộ hóa của thời gian bit được khởi động lại.
 • Tái đồng bộ hóa bit Tái đồng bộ hóa dẫn đến việc rút ngắn hoặc kéo dài thời gian bit sao cho vị trí của điểm mẫu bị dịch chuyển so với cạnh.
+
 26. Công thức tính Baudrate?
 Tốc độ baud được tính như sau:
 tốc độ baud (bit trên giây) = 18,432 x 10^6 / BRP / (1 + TSEG1 + TSEG2)
+
 27. Điều gì xảy ra khi hai nút CAN gửi cùng một mã định danh cùng một lúc?
 Hai nút trên mạng không được phép gửi tin nhắn có cùng id. Nếu hai nút cố gắng gửi một tin nhắn có cùng id vào cùng thời điểm thì việc phân xử sẽ không hoạt động. Thay vào đó, một trong các nút truyền sẽ phát hiện ra rằng thông điệp của anh ta bị biến dạng bên ngoài trường trọng tài. Sau đó, các nút sẽ sử dụng cách xử lý lỗi của CAN, trong trường hợp này cuối cùng sẽ dẫn đến việc một trong các nút truyền bị tắt (chế độ tắt bus).
-28. Sự khác biệt giữa Tốc độ bit và Tốc độ Baud là gì?
+
+29. Sự khác biệt giữa Tốc độ bit và Tốc độ Baud là gì?
 Sự khác biệt giữa tốc độ Bit và Baud rất phức tạp và đan xen. Cả hai đều phụ thuộc và liên quan đến nhau. Nhưng cách giải thích đơn giản nhất là Tốc độ bit là số lượng bit dữ liệu được truyền đi mỗi giây. Tốc độ baud là số lần mỗi giây tín hiệu trong kênh liên lạc thay đổi. Tốc độ bit đo số bit dữ liệu (tức là 0 và 1) được truyền trong một giây trong kênh liên lạc. Con số 2400 bit mỗi giây có nghĩa là 2400 số 0 hoặc số 1 có thể được truyền trong một giây, do đó có tên viết tắt là “bps”. Các ký tự riêng lẻ (ví dụ như chữ cái hoặc số) còn được gọi là byte bao gồm nhiều bit. Tốc độ truyền là số lần tín hiệu trong kênh liên lạc thay đổi trạng thái hoặc thay đổi. Ví dụ: tốc độ 2400 baud có nghĩa là kênh có thể thay đổi trạng thái lên tới 2400 lần mỗi giây. Thuật ngữ “trạng thái thay đổi” có nghĩa là nó có thể thay đổi từ 0 thành 1 hoặc từ 1 đến 0 cho đến X (trong trường hợp này là 2400) lần mỗi giây. Nó cũng đề cập đến trạng thái thực tế của kết nối, chẳng hạn như điện áp, tần số hoặc mức pha). Sự khác biệt chính giữa hai trạng thái này là một thay đổi trạng thái có thể truyền một bit, hoặc nhiều hơn hoặc ít hơn một bit, điều đó tùy thuộc vào về kỹ thuật điều chế được sử dụng. Vì vậy, tốc độ bit (bps) và tốc độ baud (baud mỗi giây) có kết nối như sau: bps = baud mỗi giây x số bit trên mỗi baudKỹ thuật điều chế xác định số lượng bit trên mỗi baud. Dưới đây là hai ví dụ: Khi sử dụng FSK (Khóa dịch tần số, một kỹ thuật truyền), mỗi baud sẽ truyền một bit. Chỉ cần một thay đổi về trạng thái để gửi một bit. Do đó, tốc độ bps của modem bằng tốc độ baud. Khi sử dụng tốc độ baud 2400, một kỹ thuật điều chế gọi là điều chế pha truyền bốn bit trên mỗi baud được sử dụng. Vì vậy: 2400 baud x 4 bit mỗi baud = 9600 bpsNhững modem như vậy có khả năng hoạt động ở tốc độ 9600 bps.
